@@ -25,6 +25,9 @@ function SearchBar() {
           };
           return objList;
         });
+        // const showModal = ((data)=>{
+        //   alert(setData(data))
+        // })
         setData(dataList);
         setRecords(dataList);
 
@@ -42,9 +45,13 @@ function SearchBar() {
           const sorted = [...resp].sort(
             (a, b) => a[sortProperty] - b[sortProperty]
           );
+          
           setData(sorted);
         };
-
+        //alert(sortType);
+        // function showModal(){
+        //   alert(sortArray(sortType));
+        // }
         sortArray(sortType);
       })
       .catch(console.error);
@@ -57,7 +64,7 @@ function SearchBar() {
       )
     );
   };
-
+  
   return (
     <>
       <div className="container">
@@ -111,7 +118,8 @@ function SearchBar() {
             </select>
             <br></br>
             <br></br>
-            <div className="row row-cols-1 row-cols-md-2">
+            
+            <div className="row row-cols-1 row-cols-md-2" onClick={()=>setData(data)}>
               {data.map((band) => (
                 <div className="col mb-3" key={band.id}>
                   <div className="card" style={{ width: "15rem" }}>
